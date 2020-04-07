@@ -1,0 +1,113 @@
+username rogelio1502
+email 	 rogelio15021515@gmail.com
+password susana15A
+
+como usar github
+
+
+iniciar sesion en github
+git config --global user.name "nombre_usuario"
+git config --global user.email "email_id
+
+-------------------------------------------------------Creación de un repositorio local
+
+Lo primero es crear una carpeta en tu computadora, que servirá como un repositorio local. Para ello, basta ejecutar el siguiente comando:
+
+	git init Mytest
+
+Este comando crea la carpeta MyTest. A su vez, la sub-carpeta .init hace que MyTest sea reconocido como un repositorio local de Git.
+
+Si se crea el repositorio con éxito, aparecerá una línea similar a la siguiente:
+
+	Initialized empty Git repository in /home/tu_usuario/Mytest/.git/
+
+Acto seguido, hay que entrar a la carpeta MyTest:
+
+	cd Mytest
+
+-----------------------------------------------------Creación de un archivo README para describir el repositorio
+
+El archivo README se utiliza generalmente para describir lo que el repositorio contiene o lo que el proyecto se trata. Para crear uno, basta ejecutar:
+
+gedit README
+
+Una vez que hayas ingresado la descripción del repositorio, no olvides guardar los cambios.
+Adición de los archivos del repositorio a un índice
+
+Este es un paso importante. Antes de poder subir los cambios a Github u otro servidor compatible con Git, hay que indexar todos los archivos contenidos en el repositorio local. Este índice contendrá los archivos nuevos así como los cambios a los archivos existentes en el repositorio local.
+
+
+
+El siguiente paso es agregar estos archivos al índice:
+
+git add README
+
+
+El comando “git add” se puede utilizar para agregar cualquier número de archivos y carpetas al índice. Para agregar todos los cambios, sin especificar el nombre de los archivos, es posible ejecutar “git add .” (con un punto al final).
+Guardar los cambios realizados en el índice
+
+Una vez añadidos todos los archivos, es posible dejar un registro de estos cambios haciendo lo que en la jerga se llama un “commit”. Esto significa que ya se ha terminado de agregar o modificar archivos y que los cambios pueden ser subidos al repositorio remoto de Github. Para ello, hay que ejecutar el siguiente comando:
+
+git commit -m "mensaje"
+
+
+
+-----------------------------------------------------------------Creación de un repositorio en GitHub
+
+El nombre del repositorio debe ser el mismo que el repositorio del sistema local. En este caso, será “MyTest”. Para ello, antes que nada, hay que iniciar sesión en Github. Luego, hay que hacer clic en el signo más (+) en la esquina superior derecha de la página y seleccionar la opción “crear nuevo repositorio”. Finalmente, hay que rellenar los datos y hacer clic en el botón “crear repositorio”.
+
+Una vez hecho esto se creará el repositorio y será posible subir el contenido del repositorio local en el repositorio GitHub. Para conectarse al repositorio remoto en GitHub hay que ejecutar el comando:
+
+	git remote add origin https://github.com/user_name/Mytest.git
+
+No olvides reemplazar ‘nombre_usuario’ y ‘MyTest’ con tu nombre de usuario y carpeta correspondientes.
+Empujar archivos del repositorio local al repositorio GitHub
+
+------------------------------El paso final es empujar el contenido del repositorio local hacia el repositorio remoto, mediante el comando:
+
+	git push origin master
+
+Sólo resta introducir las credenciales de inicio de sesión (nombre de usuario y contraseña).
+
+Esto subirá todo el contenido de la carpeta MyTest (repositorio local) a GitHub (repositorio externo). Para los proyectos subsiguientes ya no hará falta seguir estos pasos desde cero. En cambio, podrás empezar desde el paso 3 directamente. Por último, no te olvides que los cambios estarán disponibles desde la página web de Github.
+--------------------------------------Creación de una rama (branch)
+
+Cuando los desarrolladores quieren corregir errores o agregar nuevas funciones a menudo crean una rama (branch) o copia del código de modo que puedan realizar commits en forma separada, sin afectar el proyecto original. Luego, cuando hayan terminado pueden fusionar esta rama de vuelta en la rama principal (master).
+
+
+	git checkout -b mirama - crea y pasa a utilizar la rama mirama
+
+Una vez realizados los cambios, hay que agregarlos al índice de la rama y hacer el commit correspondiente:
+
+	git add .
+	git commit -m "cambios en mirama"
+
+Luego, hay que volver a la rama principal y tomar los cambios realizados en mirama:
+
+	git checkout master
+	git merge mirama
+
+Finalmente, hay que borrar mirama (ya que los cambios fueron incorporados en master):
+
+	git branch -d mirama
+
+Y subir master a Github:
+
+	git push origin master
+
+-----------------Creación de un repositorio Git derivado (fork)
+
+Gracias a Git y a la existencia de las grandes librerías de repositorios públicos, como Github, gran parte de las veces no es necesario comenzar a programar nuestro proyecto desde cero. En esos casos, es posible tomar este código de base para crear un nuevo proyecto.
+
+Para ello, lo primero que hay que hacer es un fork de un repositorio existente, o sea, un proyecto derivado del mismo que tome como base el código del proyecto original. En Github, eso se consigue haciendo clic en el botón correspondiente, como se ve en la captura a continuación.
+
+Fork de un Repositorio Github
+
+Luego, lo que hay que hacer es clonar el repositorio de este nuevo proyecto en nuestra computadora. A modo de ejemplo, podemos utilizar mi repositorio de Ankifox, una extensión para Firefox que permite agregar palabras a Anki, el cual se encuentra disponible en Github:
+
+	git clone https://github.com/usemoslinux/Ankifox.git
+
+No olvides reemplazar https://github.com/usemoslinux/Ankifox.git por la URL correspondiente a tu proyecto. Obtener esta dirección es muy fácil, como se ve en la imagen a continuación.
+
+
+-------------Y listo es todo----------

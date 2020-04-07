@@ -1,0 +1,103 @@
+crear un proyecto
+
+--django-admin startproject name_of_the_project
+
+correr server 
+
+--python3 manage.py runserver
+----------------- aplicacion -----------------------
+
+crear aplicacion en django
+--python3 manage.py startapp nombre_aplicacion
+
+checar si tenemos problemas
+--python3 manage.py chech nombre_aplicacion
+
+crear la base de datos despues de haber hecho las tablas en models.py
+--python3 manage.py makemigrations
+
+crear el codigo sql 
+--python3 manage.py sqlmigrate nombre_aplicacion la_version
+
+meter las tablas en la base de datos
+--python3 manage.py migrate 
+
+abrir consola 
+--python3 manage.py shell
+-------------------------interaccion bbdd-------------------
+importar modelos 
+from nombre_aplicacion.models import modelo
+
+----------------insertar registro
+-----metodo 1----
+variable=modelo(campos)
+variable.save()
+
+-----metodo 2----
+variable=modelo.objects.create(campos)
+
+----------------update
+variable.nombre_atributo='nuevo_valor'
+variable.save()
+
+----------------delete (nunca olvides en el delete el where)
+
+metemos en una variable el que borraremos
+registro_borrar=modelo.objects.get(condicion)#ejemplo id=6
+lo borramos
+registro_borrar.delete()
+
+
+-----------------select
+lista_donde_almacenamos_la_consulta=modelo.objects.all()
+
+
+-----------------select con where
+
+lista_donde_almacenamos_la_consulta=modelo.objects.filter(condicion)
+
+--operadores en where
+mayores a 
+lista_donde_almacenamos_la_consulta=modelo.objects.filter(atributo__gte=cantidad)
+
+menores a 
+lista_donde_almacenamos_la_consulta=modelo.objects.filter(atributo__lte=cantidad)
+
+between 
+lista=modelo.objects.filter(atributo gte=cantidad,atributo__lte=cantidad)
+
+and
+
+modelo.objects.filter(atributo=condicion,atributo=condicion2)
+
+----------------order by
+
+modelo.objects.filter(atributo__lte=50).order_by('atributo')
+
+asc
+modelo.objects.filter(atributo__lte=50).order_by('+atributo')
+desc
+modelo.objects.filter(atributo__lte=50).order_by('-atributo')
+
+-----------------panel de administracion--------------------------------------------
+
+crear superusuario
+
+python3 manage.py createsuperuser
+
+ir al panel
+
+direccion/admin/
+
+ingresar sesion con el usuario y password que establecimos
+
+
+
+
+
+
+
+
+
+
+
